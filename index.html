@@ -4,7 +4,6 @@
     <title></title>
   </head>
   <body>
-    <p> Test </p>
     <div id="selector">
       <!-- Wij hebben hier de Div id selector want wij creeeren hier selector-->
         <select v-model="selected">
@@ -13,6 +12,8 @@
           </option>
         </select>
     </div>
+
+    <!-- Wij willen een selectie hebben uit de gekozen selectie bij de selector -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
@@ -30,6 +31,9 @@
           ]
         }
       });
+
+
+      //Wij kiezen van uit de gekozen ruimte verschillende opties om de meldingen te kunnen doen.
     </script>
   </body>
 </html>
