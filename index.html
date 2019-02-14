@@ -4,23 +4,29 @@
     <title></title>
   </head>
   <body>
-    <div id="root">
-      <select v-model="selected">
-        <option disabled value="">Kies een ruimte</option>
-        <option>Herentoilet</option>
-        <option>Damestoilet</option>
-        <option>Keuken</option>
-      </select>
-      <span>Ruimte: {{ selected }}</span>
+    <div id="selector">
+      <!-- Wij hebben hier de Div id selector want wij creeeren hier selector-->
+        <select v-model="selected">
+          <option v-for="option in options" v-bind:value="option.value">
+            {{ option.text }}
+          </option>
+        </select>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
       new Vue({
-        el: "#root",
+        //El staat voor element deze moet je aangeven zodat Vue weet waar je op geslecteerd staat.
+        //We kijken naar het ID selector want we maken een selector.
+        el: '#selector',
         data: {
-          selected: ""
+          //Wij hebben geen standaard waarde want dit was ook niet gevraagd.
+          options: [
+            { text: 'Herentoilet', value: 'Herentoilet' },
+            { text: 'Damestoilet', value: 'Damestoilet' },
+            { text: 'Keuken', value: 'Keuken' }
+          ]
         }
       });
     </script>
