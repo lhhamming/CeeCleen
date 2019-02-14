@@ -6,7 +6,7 @@
   <body>
     <div id="selector">
       <!-- Wij hebben hier de Div id selector want wij creeeren hier selector-->
-        <select v-model="selected">
+        <select v-model="selected" @change="onchange()" class="form-control">
           <option v-for="option in options" v-bind:value="option.value">
             {{ option.text }}
           </option>
@@ -23,13 +23,23 @@
         //We kijken naar het ID selector want we maken een selector.
         el: '#selector',
         data: {
+          //Definieer selected.
+          selected: '',
           //Wij hebben geen standaard waarde want dit was ook niet gevraagd.
           options: [
             { text: 'Herentoilet', value: 'Herentoilet' },
             { text: 'Damestoilet', value: 'Damestoilet' },
             { text: 'Keuken', value: 'Keuken' }
           ]
-        }
+        },
+        methods: {
+          //word aangroepen door de Selector als die veranderd word.
+            onchange: function(){
+              //Logged en alert welke optie geselecteerd is
+              console.log(this.selected)
+              alert(this.selected)
+            }
+          }
       });
 
 
