@@ -42,7 +42,7 @@
           onchange: function() {
             //Logged en alert welke optie geselecteerd is
             console.log(this.selected);
-
+            /*
             if ("Herentoilet" == this.selected) {
               //Logged en alert welke optie geselecteerd is
               console.log("wcpapier");
@@ -50,6 +50,26 @@
               console.log("zeep");
             } else {
               console.log("afwasmachine");
+            }
+            */
+
+            switch (this.selected) {
+              case "Herentoilet":
+                var Herentoiletarray = ["toilet vies", "zeep op", "handdoeken"];
+                console.log(Herentoiletarray);
+                break;
+              case "Damestoilet":
+                var Damestoiletarray = ["toilet vies", "zeep op", "handdoeken"];
+                console.log(Damestoiletarray);
+                break;
+              case "Keuken":
+                var keukenarray = [
+                  "koffieautomaat stuk",
+                  "vaatwasser",
+                  "koffiebonen op"
+                ];
+                console.log(keukenarray);
+                break;
             }
           }
         }
