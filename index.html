@@ -16,6 +16,12 @@
       <span>
         <button type="button">{{ selected }}</button>
       </span>
+      <br />
+
+
+      <span v-for="item in itemArray">
+          <input type="radio">{{ item.name }}</input> <br />
+        </span>
     </div>
 
     <!-- Wij willen een selectie hebben uit de gekozen selectie bij de selector -->
@@ -23,11 +29,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-      new Vue({
+ var Test = new Vue({
         //El staat voor element deze moet je aangeven zodat Vue weet waar je op geslecteerd staat.
         //We kijken naar het ID selector want we maken een selector.
         el: "#selector",
         data: {
+          name: '',
+          //Define the ItemArray deze is genest. want deze 'leeft' hier 
+          itemArray: [],
           //Definieer selected.
           selected: " ",
           //Wij hebben geen standaard waarde want dit was ook niet gevraagd.
@@ -55,10 +64,14 @@
 
             switch (this.selected) {
               case "Herentoilet":
+                //De array word leeg gemaakt.
+                Test.itemArray = [];
                 var Herentoiletarray = ["toilet vies", "zeep op", "handdoeken"];
                 console.log(Herentoiletarray);
                 break;
               case "Damestoilet":
+                              //De array word leeg gemaakt.
+                              Test.itemArray = [];
                 var Damestoiletarray = ["toilet vies", "zeep op", "handdoeken"];
                 console.log(Damestoiletarray);
                 break;
@@ -68,6 +81,13 @@
                   "vaatwasser",
                   "koffiebonen op"
                 ];
+                //De array word leeg gemaakt.
+                Test.itemArray = [];
+                //We vullen de array
+                //alert: "vaatwasser", alert: "koffiebonen op"
+                Test.itemArray.push({ name: "Koffieautomaat stuk"});
+                Test.itemArray.push({ name: "vaatwasser"});
+                Test.itemArray.push({ name: "koffiebonen op"});
                 console.log(keukenarray);
                 break;
             }
