@@ -11,16 +11,11 @@
           {{ option.text }}
         </option>
       </select>
-      <br />
-      <!--weergeven wat er geselecteerd is-->
-      <span>
-        <button type="button">{{ selected }}</button>
-      </span>
-      <br />
+     
 
 
       <span v-for="item in itemArray">
-          <input type="radio">{{ item.name }}</input> <br />
+          <input type="radio" name="items">{{ item.name }}</input> <br />
         </span>
     </div>
 
@@ -51,45 +46,31 @@
           onchange: function() {
             //Logged en alert welke optie geselecteerd is
             console.log(this.selected);
-            /*
-            if ("Herentoilet" == this.selected) {
-              //Logged en alert welke optie geselecteerd is
-              console.log("wcpapier");
-            } else if ("Damestoilet" == this.selected) {
-              console.log("zeep");
-            } else {
-              console.log("afwasmachine");
-            }
-            */
-
+            emptyArray();
             switch (this.selected) {
-              case "Herentoilet":
-                //De array word leeg gemaakt.
-                Test.itemArray = [];
-                var Herentoiletarray = ["toilet vies", "zeep op", "handdoeken"];
-                console.log(Herentoiletarray);
-                break;
+              case "Herentoilet":              
+                Test.itemArray.push({ name: "toilet verstopt"});
+                Test.itemArray.push({ name: "zeep op"});
+                Test.itemArray.push({ name: "Spiegel kapot"});             
+               break;
+              
+              
               case "Damestoilet":
-                              //De array word leeg gemaakt.
-                              Test.itemArray = [];
-                var Damestoiletarray = ["toilet vies", "zeep op", "handdoeken"];
-                console.log(Damestoiletarray);
+                Test.itemArray.push({ name: "toilet vies"});
+                Test.itemArray.push({ name: "zeep op"});
+                Test.itemArray.push({ name: "handdoeken"});
                 break;
+              
+              
               case "Keuken":
-                var keukenarray = [
-                  "koffieautomaat stuk",
-                  "vaatwasser",
-                  "koffiebonen op"
-                ];
-                //De array word leeg gemaakt.
-                Test.itemArray = [];
-                //We vullen de array
-                //alert: "vaatwasser", alert: "koffiebonen op"
                 Test.itemArray.push({ name: "Koffieautomaat stuk"});
                 Test.itemArray.push({ name: "vaatwasser"});
-                Test.itemArray.push({ name: "koffiebonen op"});
-                console.log(keukenarray);
+                Test.itemArray.push({ name: "koffiebonen op"});           
                 break;
+            }
+
+            function emptyArray(){
+              Test.itemArray = [];
             }
           }
         }
